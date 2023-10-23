@@ -1,22 +1,20 @@
-import java.util.Scanner;
+
 public class LinearEquation{
-    Scanner scan = new Scanner(System.in);
+
     private int x1;
     private int x2;
     private int y1;
     private int y2;
-    public LinearEquation(){
-        System.out.print("Enter coordinate 1: ");
-        String coordinates = scan.nextLine();
-        String strX = coordinates.substring(1, coordinates.indexOf(","));
-        String strY = coordinates.substring((coordinates.indexOf(","))+2, (coordinates.length()-1));
+
+
+    public LinearEquation(String coordinate1, String coordinate2){
+        String strX = coordinate1.substring(1, coordinate1.indexOf(","));
+        String strY = coordinate1.substring((coordinate1.indexOf(","))+2, (coordinate1.length()-1));
         x1 = Integer.parseInt(strX);
         y1 = Integer.parseInt(strY);
 
-        System.out.print("Enter coordinate 2: ");
-        coordinates = scan.nextLine();
-        strX = coordinates.substring(1, coordinates.indexOf(","));
-        strY = coordinates.substring((coordinates.indexOf(","))+2, coordinates.indexOf(")"));
+        strX = coordinate2.substring(1, coordinate2.indexOf(","));
+        strY = coordinate2.substring((coordinate2.indexOf(","))+2, coordinate2.indexOf(")"));
         x2 = Integer.parseInt(strX);
         y2 = Integer.parseInt(strY);
     }

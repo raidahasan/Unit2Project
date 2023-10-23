@@ -1,10 +1,20 @@
+
+import java.util.Scanner;
 public class LinearEquationRunner {
-    public static void main(String [] args){
-        LinearEquation line = new LinearEquation();
-        System.out.println(line.distance());
-        System.out.println(line.slope());
-        System.out.println(line.yIntercept());
-        System.out.println(line.equation());
+    Scanner scan = new Scanner(System.in);
+
+    public void start(){
+        enterCoordinates();
+        System.out.println();
 
     }
+
+    public void enterCoordinates(){
+        System.out.println("Enter your first coordinate: ");
+        String coordinate1 = scan.nextLine();
+        System.out.println("Enter your second coordinate: ");
+        String coordinate2= scan.nextLine();
+        new LinearEquation(coordinate1, coordinate2);
+    }
+
 }

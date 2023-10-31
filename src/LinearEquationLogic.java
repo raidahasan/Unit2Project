@@ -25,17 +25,21 @@ public class LinearEquationLogic {
     }
 
     public void enterCoordinates(){
-        System.out.println("Enter your first coordinate: ");
+        System.out.print("Enter your first coordinate: ");
         String coordinate1 = scan.nextLine();
-        System.out.println("Enter your second coordinate: ");
+        System.out.print("Enter your second coordinate: ");
         String coordinate2= scan.nextLine();
         coordinates = new LinearEquation(coordinate1, coordinate2);
     }
 
     public void enterX(){
-        System.out.println("Enter an integer for x:");
-        int x = scan.nextInt();
-        scan.nextLine();
-        System.out.println("The point on the line is : " + coordinates.coordinateForX(x) + "\n");
+        if(coordinates.slope() ==0){
+            System.out.println("These points are on a vertical line: x = " + coordinates.coordinateForX(0));
+        }else{
+            System.out.print("Enter a value for x:");
+            double x = scan.nextDouble();
+            scan.nextLine();
+            System.out.println("The point on the line is : " + coordinates.coordinateForX(x) + "\n");
+        }
     }
 }

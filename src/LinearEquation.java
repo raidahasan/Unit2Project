@@ -27,11 +27,13 @@ public class LinearEquation{
         return distance;
     }
 
-    public double slope(){
-        double slope=0;
-        if(x2 ==x1){
+    public double slope() {
+        double slope = 0;
+        if(y1==y2){
             slope=0;
-        }else {
+        }else if(x2 ==x1){
+            slope=0;
+        }else{
             slope = (double) (y2 - y1) / (x2 - x1);
             slope = roundedToHundredth(slope);
         }
@@ -54,7 +56,7 @@ public class LinearEquation{
         if (x1 == x2) {
             equation = "x= " + x1;
         } else if (slope() == -1) {
-            equation = "y = " + "-x " + yIntercept();
+            equation = "y = -x " ;
         } else if (slope() == 1) {
             equation = "y = " + "x ";
         } else if (slope() == 0) {
@@ -62,35 +64,38 @@ public class LinearEquation{
         } else if ((slope() % 1) == 0) {
             if (yIntercept() > 0) {
                 equation = "y = " + (int) (slope()) + "x";
-            } else if (yIntercept() < 0) {
+            } else {
                 equation = "y = " + (int) (slope()) + "x ";
             }
         } else if (slope() == 0 && yIntercept() == 0) {
-                equation = "y = 0";
+            equation = "y = 0";
         } else if (yIntercept() == 0) {
-                equation = "y = " + slope() + "x";
+            equation = "y = " + slope() + "x";
         } else if (yIntercept() > 0) {
-                if ((y2 - y1) > 0 && (x2 - x1) > 0) {
-                    equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-                } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
-                    equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-                } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
-                    equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
-                } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
-                    equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
-                }
-        } else if (slope() < 0) {
-                if ((y2 - y1) > 0 && (x2 - x1) > 0) {
-                    equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-                } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
-                    equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-                } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
-                    equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
-                } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
-                    equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
-                }
+            if ((y2 - y1) > 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
+                equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
+            } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
+                equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
             }
-        if(x1 == x2){
+        } else if (slope() < 0) {
+            if ((y2 - y1) > 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
+                equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
+            } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
+                equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
+            }
+        }
+
+        if(y1==y2){
+            equation = "y = " + y1;
+        }else if(x1 == x2){
 
         }else if(yIntercept()< 0){
             equation += yIntercept();
@@ -102,10 +107,12 @@ public class LinearEquation{
     }
 
 
-    public String coordinateForX(double x){
+    public String coordinateForX(double x) {
         double y = slope() * x + yIntercept();
-        if(x1==x2){
-            return Integer.toString(x1);
+        if(y1==y2){
+            return "These points are on a horizontal line: y = " + Integer.toString(y1);
+        }else if(x1==x2){
+            return "These points are on a vertical line: x = " + Integer.toString(x1);
         }else {
             return "(" + x + ", " + y + ")";
         }

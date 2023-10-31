@@ -34,7 +34,7 @@ public class LinearEquationLogic {
 
     public void enterX(){
         if(coordinates.slope() ==0){
-            System.out.println("These points are on a vertical line: x = " + coordinates.coordinateForX(0));
+            System.out.println(coordinates.coordinateForX(0));
         }else{
             System.out.print("Enter a value for x:");
             double x = scan.nextDouble();

@@ -6,16 +6,14 @@ public class LinearEquation{
     private int y1;
     private int y2;
 
-    public LinearEquation(String coordinate1, String coordinate2){
-        String strX = coordinate1.substring(1, coordinate1.indexOf(","));
-        String strY = coordinate1.substring((coordinate1.indexOf(","))+2, (coordinate1.length()-1));
-        x1 = Integer.parseInt(strX);
-        y1 = Integer.parseInt(strY);
+    private String equation = "";
 
-        strX = coordinate2.substring(1, coordinate2.indexOf(","));
-        strY = coordinate2.substring((coordinate2.indexOf(","))+2, coordinate2.indexOf(")"));
-        x2 = Integer.parseInt(strX);
-        y2 = Integer.parseInt(strY);
+    public LinearEquation(int x, int y, int xtwo, int ytwo){
+       x1 = x;
+       y1 = y;
+       x2 = xtwo;
+       y2 = ytwo;
+
     }
 
     public double distance(){
@@ -52,7 +50,6 @@ public class LinearEquation{
     }
 
     public String equation() {
-        String equation = "";
         if (x1 == x2) {
             equation = "x= " + x1;
         } else if (slope() == -1) {
@@ -62,16 +59,11 @@ public class LinearEquation{
         } else if (slope() == 0) {
             equation = "y = ";
         } else if ((slope() % 1) == 0) {
-            if (yIntercept() > 0) {
                 equation = "y = " + (int) (slope()) + "x";
-            } else {
-                equation = "y = " + (int) (slope()) + "x ";
-            }
         } else if (slope() == 0 && yIntercept() == 0) {
             equation = "y = 0";
-        } else if (yIntercept() == 0) {
-            equation = "y = " + slope() + "x";
-        } else if (yIntercept() > 0) {
+
+        /*} else if (yIntercept() > 0) {
             if ((y2 - y1) > 0 && (x2 - x1) > 0) {
                 equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
             } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
@@ -81,7 +73,19 @@ public class LinearEquation{
             } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
                 equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
             }
-        } else if (slope() < 0) {
+        } else if (slope() < 1) {
+            if ((y2 - y1) > 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
+                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
+            } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
+                equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
+            } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
+                equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
+            }
+            */
+
+        }else{
             if ((y2 - y1) > 0 && (x2 - x1) > 0) {
                 equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
             } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
@@ -105,7 +109,6 @@ public class LinearEquation{
         return equation;
 
     }
-
 
     public String coordinateForX(double x) {
         double y = slope() * x + yIntercept();

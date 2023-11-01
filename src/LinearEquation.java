@@ -62,29 +62,6 @@ public class LinearEquation{
                 equation = "y = " + (int) (slope()) + "x";
         } else if (slope() == 0 && yIntercept() == 0) {
             equation = "y = 0";
-
-        /*} else if (yIntercept() > 0) {
-            if ((y2 - y1) > 0 && (x2 - x1) > 0) {
-                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-            } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
-                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-            } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
-                equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
-            } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
-                equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
-            }
-        } else if (slope() < 1) {
-            if ((y2 - y1) > 0 && (x2 - x1) > 0) {
-                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-            } else if ((y2 - y1) < 0 && (x2 - x1) > 0) {
-                equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
-            } else if ((y2 - y1) < 0 && (x2 - x1) < 0) {
-                equation = "y = " + Math.abs((y2 - y1)) + "/" + Math.abs((x2 - x1)) + "x ";
-            } else if ((y2 - y1) > 0 && (x2 - x1) < 0) {
-                equation = "y = -" + (y2 - y1) + "/" + Math.abs((x2 - x1)) + "x ";
-            }
-            */
-
         }else{
             if ((y2 - y1) > 0 && (x2 - x1) > 0) {
                 equation = "y = " + (y2 - y1) + "/" + (x2 - x1) + "x ";
